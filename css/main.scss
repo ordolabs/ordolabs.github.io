@@ -1,0 +1,123 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+@import "variables";
+@import "bootstrap/bootstrap";
+@import "highlight-dracula";
+
+
+/* Use bootstrap style on Markdown tables*/
+div>table{
+  @extend .table;
+  @extend .table-sm;
+  @extend .table-striped;
+}
+
+/* H1 element to use serif font */
+// Type display classes
+h1 {
+  font-family: $font-family-serif;
+  font-style: italic;
+}
+
+
+/* Reset display to use sans */
+// Type display classes
+.site-header {
+  font-family:'Press Start 2P', cursive;
+  font-style: normal;
+
+}
+
+.small-caps{
+  font-variant: small-caps;
+}
+
+/* Code */
+code,
+kbd,
+pre,
+samp {
+  line-height: 1.4;
+}
+figure.highlight,
+.highlighter-rouge {
+  > pre {
+    padding: 0.5rem 0.8rem 0.4rem 0.8rem;
+
+    border-radius: 0.25rem;
+    pre {
+      margin-bottom: 0;
+    }
+    pre.lineno {
+      padding-right: 0.5rem;
+      margin-right: 0.5rem;
+      border-right: 1px solid #7f9f7f;
+    }
+    table pre {
+      font-size: 100%;
+    }
+  }
+}
+
+code.highlighter-rouge {
+  vertical-align: middle;
+  padding-top: 0.2rem;
+  padding-bottom: 0.1rem;
+}
+
+pre.md {
+  padding: 0.5rem 0.8rem 0.4rem 0.8rem;
+  color: #bd4147;
+  background-color: #f7f7f9;
+  border-radius: 0.25rem;
+}
+
+/* Center large images */
+img.block-image {
+  @extend .img-fluid;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding: 0.6rem 0;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+
+/* Bootstrap blockquotes */
+blockquote{
+  @extend .blockquote;
+  font-size: 90%;
+}
+
+// Custom site css
+.nt-header{
+  margin-bottom: 0;
+  background-color: #000000;
+  color: #eeeeee;
+}
+
+.nt-navbar{
+  margin-bottom: 40px;
+  font-family: $font-family-monospace;
+  background-color: rgba(236, 238, 239, 0.20);;
+  .nt-nav{
+    padding: 0.8rem;
+  }
+  a{
+    color: #000;
+  }
+}
+
+.nt-index-section{
+  min-height: 60vh;
+}
+
+.nt-post-link{
+  color: black;
+}

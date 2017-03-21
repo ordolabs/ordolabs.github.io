@@ -1,38 +1,83 @@
 ---
 layout: default
-title: Home
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ site.baseurl }}/{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+{% include header.html %}
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+<div class="nt-index">
 
-    {{ post.content }}
-  </div>
-  {% endfor %}
+  <section class="container nt-posts-list-section nt-index-section">
+
+    <div class="row">
+      <header class="col-lg-10 offset-lg-1 text-xs-center">
+        <h1 class="text-center">Posts</h1>
+        <hr>
+      </header>
+    </div>
+
+    <div class="row">
+      <ul class="col-lg-8 offset-lg-2">
+        {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url }}" class="nt-post-link">{{ post.title }} </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </section>
+
+  <section class="container nt-about-section nt-index-section">
+
+    <div class="row">
+      <header class="col-lg-10 offset-lg-1 text-xs-center">
+        <h1 class="text-center">About</h1>
+        <hr>
+      </header>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        About me
+      </div>
+    </div>
+
+  </section>
+
+  <section class="container nt-contact-section nt-index-section">
+
+    <div class="row">
+      <header class="col-lg-10 offset-lg-1 text-xs-center">
+        <h1 class="text-center">Contact</h1>
+        <hr>
+      </header>
+    </div>
+
+       <form>
+        <div class="form-group row">
+          <label for="inputEmail" class="col-lg-2 offset-lg-2 col-md-3 col-form-label">Your email:</label>
+          <div class="col-lg-6 col-md-9">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Your email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputMessage" class="col-lg-2 offset-lg-2 col-md-3 col-form-label">Message:</label>
+          <div class="col-lg-6 col-md-9">
+            <textarea class="form-control" id="inputMessage" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="offset-lg-3 offset-lg-4 col-lg-4 col-md-6 offset-md-3">
+            <button type="submit" class="btn btn-primary btn-block">Get in touch</button>
+          </div>
+        </div>
+      </form>
+
+  </section>
+
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+
+{% include footer.html %}
+
 
